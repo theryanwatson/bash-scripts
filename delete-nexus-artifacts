@@ -1,0 +1,34 @@
+#!/bin/bash
+# path to the directory with the app: https://nexus.my-company.com/repository/maven-releases/com/my-company/
+# app name: my-app
+# Major.Minor version: 1.0
+# Patch version start: 14
+# Patch version end: 65
+#
+# delete-nexus-artifacts.sh {full-path-to-resource} {app-name} {major.minor} {patch-version-start} {patch-version-end}
+# delete-nexus-artifacts.sh "https://nexus.my-company.com/repository/maven-releases/com/my-company/" "my-app" "1.0" 14 65
+#
+
+path=${1}
+app=${2}
+major_minor=${3}
+version_start=${4}
+version_end=${5}
+
+read -p "User: " user_name
+read -s -p "Password: " password
+echo
+
+for (( i=${version_start}; i<${version_end}; i++ )); do
+    # https://nexus.my-company.com/repository/maven-releases/com/my-company/my-app/1.0.14/my-app-1.0.14.jar
+    version=${major_minor}.${i}
+    artifact_path="${path}${app}/${version}/${app}-${version}"
+
+    echo ${artifact_path}
+    for suffix in .jar -assembly.jar .pom -javadoc.jar -sources.jar; do
+        for type in '' .md5 .sha1; do
+            echo `curl --write-out %{http_code} --silent -X DELETE -u "${user_name}:${password}" "${artifact_path}${suffix}${type}"`
+        done
+    done
+done
+

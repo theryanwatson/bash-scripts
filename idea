@@ -1,0 +1,8 @@
+#!/bin/bash
+ipr_path=${PWD}/*.ipr
+project_path=${PWD}
+if [ -e ${ipr_path} ]; then
+    project_path=${ipr_path}
+fi
+/usr/lib/intellij/bin/idea.sh "${project_path}" > /dev/null 2>&1&
+disown

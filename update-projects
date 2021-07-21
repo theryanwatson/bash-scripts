@@ -1,0 +1,21 @@
+#!/bin/bash
+ 
+update() {
+  if [ -d .git ]; then
+    git pull
+    git fetch --tags
+  fi
+}
+
+updateDirs() {
+  for D in *; do
+    if [[ -d "${D}" && ! -L "${D}" ]]; then
+      echo "${D}"; cd "${D}";
+      update
+      cd ..
+    fi
+  done
+}
+ 
+cd ~/projects
+updateDirs
