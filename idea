@@ -4,5 +4,11 @@ project_path=${PWD}
 if [ -e ${ipr_path} ]; then
     project_path=${ipr_path}
 fi
-/usr/lib/intellij/bin/idea.sh "${project_path}" > /dev/null 2>&1&
+
+if grep -qi microsoft /proc/version; then
+    /mnt/c/Windows/System32/cmd.exe "/K start idea64 $(wslpath -w ${project_path})" > /dev/null 2>&1&
+else
+    /usr/lib/intellij/bin/idea.sh "${project_path}" > /dev/null 2>&1&
+fi
+
 disown
