@@ -1,0 +1,8 @@
+#!/bin/bash
+ipr_path=${PWD}/*.ipr
+project_path=$(wslpath -w ${PWD})
+if [ -e ${ipr_path} ]; then
+    project_path=$(wslpath -w ${ipr_path})
+fi
+/mnt/c/Windows/System32/cmd.exe "/K start idea64 ${project_path}" > /dev/null 2>&1&
+disown
