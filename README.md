@@ -13,7 +13,14 @@ Deletes the various maven artifacts associated with jars, poms, javadoc, etc
 * `delete-nexus-artifacts {{ path-to-directory }} {{ app-name }} {{ major-minor-version }} {{ starting-patch-version-inclusive }} {{ ending-patch-version-exclusive }}`
   * `delete-nexus-artifacts "https://nexus.my-company.com/repository/maven-releases/com/my-company/" "my-app" "1.0" 14 65`
 
-### [idea](idea)
+### [fix-newlines](fix-newlines)
+When a file has Windows newlines
+
+###### Usage:
+* `fix-newlines {{ file-to-fix }}`
+  * `fix-newlines ./gradlew`
+
+### [idea](idea) / [idea-for-wsl](idea-for-wsl)
 Opens the current folder in Idea IntelliJ.
 
 ###### Usage:
