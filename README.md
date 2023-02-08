@@ -20,8 +20,8 @@ When a file has Windows newlines
 * `fix-newlines {{ file-to-fix }}`
   * `fix-newlines ./gradlew`
 
-### [idea](idea) / [idea-for-wsl](idea-for-wsl)
-Opens the current folder in Idea IntelliJ.
+### [idea](idea)
+Opens the current folder in Idea IntelliJ. WSL version assumes `idea64.exe` is in path.
 
 ###### Usage:
 * `cd {{ project folder}}; idea`
