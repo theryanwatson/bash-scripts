@@ -1,3 +1,8 @@
+## Download and chmod scripts:
+```bash
+mkdir -p ~/bin; for s in alldirs fix-newlines idea update-projects; do wget https://raw.githubusercontent.com/theryanwatson/bash-scripts/main/${s} -O ~/bin/${s}; chmod +x ~/bin/${s}; done
+```
+
 ### [alldirs](alldirs)
 Will perform any task over all directories in the current directory, non-recursively.
 
