@@ -1,8 +1,12 @@
 #!/bin/bash
-ipr_path=${PWD}/*.ipr
 project_path=${PWD}
+ipr_path=${project_path}/*.ipr
+bazel_path=${project_path}/.ijwb
+
 if [ -e ${ipr_path} ]; then
     project_path=${ipr_path}
+elif [ -e ${bazel_path} ]; then
+    project_path=${bazel_path}
 fi
 
 if grep -qi microsoft /proc/version; then
