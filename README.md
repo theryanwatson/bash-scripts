@@ -1,6 +1,6 @@
 ## Download and chmod scripts:
 ```bash
-mkdir -p ~/bin; for s in alldirs fix-newlines idea update-projects; do wget https://raw.githubusercontent.com/theryanwatson/bash-scripts/main/${s} -O ~/bin/${s}; chmod +x ~/bin/${s}; done
+mkdir -p ~/bin; for s in alldirs docker-compose fix-newlines idea update-projects; do wget https://raw.githubusercontent.com/theryanwatson/bash-scripts/main/${s} -O ~/bin/${s}; chmod +x ~/bin/${s}; done
 ```
 
 ### [alldirs](alldirs)
@@ -17,6 +17,12 @@ Deletes the various maven artifacts associated with jars, poms, javadoc, etc
 ###### Usage:
 * `delete-nexus-artifacts {{ path-to-directory }} {{ app-name }} {{ major-minor-version }} {{ starting-patch-version-inclusive }} {{ ending-patch-version-exclusive }}`
   * `delete-nexus-artifacts "https://nexus.my-company.com/repository/maven-releases/com/my-company/" "my-app" "1.0" 14 65`
+
+### [docker-compose](docker-compose)
+Script for legacy `docker-compose` calls, since it has been replaced with `docker compose`
+
+###### Usage:
+* `docker-compose up`
 
 ### [fix-newlines](fix-newlines)
 When a file has Windows newlines
