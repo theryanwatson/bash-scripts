@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 project_path=${PWD}
 ipr_path=${project_path}/*.ipr
 bazel_path=${project_path}/.ijwb
