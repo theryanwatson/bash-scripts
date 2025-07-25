@@ -1,6 +1,6 @@
 ## Download and chmod scripts:
 ```bash
-mkdir -p ~/bin; for s in alldirs docker-compose fix-newlines idea update-projects; do wget https://raw.githubusercontent.com/theryanwatson/bash-scripts/main/${s} -O ~/bin/${s}; chmod +x ~/bin/${s}; done
+mkdir -p ~/bin; for s in alldirs docker-compose docker-stop-all fix-newlines idea rename-remote-branch update-projects; do wget https://raw.githubusercontent.com/theryanwatson/bash-scripts/main/${s} -O ~/bin/${s}; chmod +x ~/bin/${s}; done
 ```
 
 ### [alldirs](alldirs)
